@@ -18,7 +18,7 @@
 		</div>
 		<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
 			<a href="#" class="d-lg-none">
-				<img alt="Logo" src="{{ asset('img/logo.png') }}" class="h-50px" />
+				<img alt="Logo" src="{{ asset('img/logo.png') }}" class="h-90px" />
 			</a>
 		</div>
 		<div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
@@ -46,16 +46,18 @@
 						data-kt-menu="true">
 						<div class="menu-item px-3">
 							<div class="menu-content d-flex align-items-center px-3">
+								<!--begin::Avatar-->
 								<div class="symbol symbol-50px me-5">
-									<img alt="Logo" src="{{ asset('img/blank.png') }}" />
+									<img alt="Logo" src="{{ asset('img/logo.png') }}">
 								</div>
 								<div class="d-flex flex-column">
 									<div class="fw-bolder d-flex align-items-center fs-5">{{Auth::user()->username}}
-										<span
-											class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">{{Auth::user()->name}}
-									</div>
-									<a href="#"
-										class="fw-bold text-muted text-hover-primary fs-7">{{Auth::user()->email}}
+									@if(Auth::user()->level==1)
+										<span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">admin</span></div>
+									@else
+										<span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">user</span></div>
+									@endif
+									<a href="#" class="fw-bold text-muted text-hover-primary fs-7">{{Auth::user()->email}}</a>
 								</div>
 							</div>
 						</div>

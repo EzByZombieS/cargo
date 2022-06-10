@@ -15,12 +15,39 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('username');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->rememberToken();
+            $table->integer('level');
             $table->timestamps();
+        });
+        Schema::create('inbounds', function (Blueprint $table) {
+            $table->id();
+            $table->string('vessel_name');
+            $table->timestamp('eta');
+            $table->timestamp('etd')->nullable();
+            $table->integer('container_number');
+            $table->integer('po');
+            $table->string('description');
+            $table->string('remaks')->nullable();
+        });
+
+        Schema::create('outbounds', function (Blueprint $table) {
+            $table->id();
+            $table->string('vessel_name');
+            $table->timestamp('eta');
+            $table->timestamp('etd')->nullable();
+            $table->integer('container_number');
+            $table->integer('po');
+            $table->string('description');
+        });
+
+        Schema::create('schedules', function (Blueprint $table) {
+            $table->id();
+            $table->string('vessel_name');
+            $table->timestamp('eta');
+            $table->timestamp('etd')->nullable();
         });
     }
 
