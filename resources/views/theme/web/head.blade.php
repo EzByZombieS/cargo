@@ -10,6 +10,7 @@
 	<link href="{{asset('keenthemes/plugins/global/plugins.bundle.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{asset('keenthemes/css/style.bundle.css')}}" rel="stylesheet" type="text/css" />
 	<link href="{{ asset('css/confirm.css') }}"  rel="stylesheet" type="text/css">
+	<link href="{{ asset('metronic/plugins/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet" type="text/css" />
 	
 
 	<title>{{config('app.name') . ': ' .$title ?? config('app.name')}}</title>

@@ -11,6 +11,7 @@
 <script src="{{ asset('metronic/js/custom/utilities/modals/upgrade-plan.js') }}"></script>
 <script src="{{ asset('metronic/js/custom/utilities/modals/create-app.js') }}"></script>
 <script src="{{ asset('metronic/js/custom/utilities/modals/users-search.js') }}"></script>
+<script src="{{ asset('metronic/plugins/custom/fullcalendar/fullcalendar.bundle.js') }}"></script>
 
 <script src="{{asset('js/auth.js')}}"></script>
 <script src="{{asset('semicolon/js/functions.js')}}"></script>
