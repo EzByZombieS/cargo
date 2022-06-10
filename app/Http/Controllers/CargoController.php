@@ -11,7 +11,9 @@ class CargoController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $collection = Schedule::paginate(10);
+            $keywords = $request->keywords;
+            $collection = Schedule::where('vessel_name','like','%'.$keywords.'%')
+            ->paginate(10);
             return view('pages.user.cargo.list',compact('collection'));
         }
         return view('pages.user.cargo.main');

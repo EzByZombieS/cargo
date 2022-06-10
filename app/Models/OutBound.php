@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class OutBound extends Model
 {
     use HasFactory;
+    protected $table='outbounds';
+    public $timestamps=false;
 }

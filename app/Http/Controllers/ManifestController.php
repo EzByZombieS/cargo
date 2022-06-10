@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\InBound;
 use Illuminate\Http\Request;
+use PDF;
 
 class ManifestController extends Controller
 {
@@ -11,8 +12,11 @@ class ManifestController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $collection = InBound::paginate(10);
-            return view('pages.admin.inbound.list',compact('collection'));
+            $keywords = $request->keywords;
+            $collection = InBound::where('vessel_name','like','%'.$keywords.'%')
+            ->orWhere('id_vessel','like','%'.$keywords.'%')
+            ->paginate(10);
+            return view('pages.user.manifest.list',compact('collection'));
         }
         return view('pages.user.manifest.main');
     }
@@ -51,5 +55,11 @@ class ManifestController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public static function pdfDownload(){
+        $data = InBound::get();
+        $pdf = PDF::loadView('pages.user.manifest.pdf',compact('data'));
+        return $pdf->download('Data Manifest Cargo.pdf');
     }
 }

@@ -221,3 +221,45 @@ function handle_upload(tombol, form, url, method){
         return false;
     });
 }
+
+function handle_delete(url){
+    $.confirm({
+        animationSpeed: 1000,
+        animation: 'zoom',
+        closeAnimation: 'scale',
+        animateFromElement: false,
+        columnClass: 'medium',
+        title: 'Konfirmasi Delete',
+        content: 'Apakah Anda Yakin Untuk Menghapus Data Anda ?',
+        // icon: 'fa fa-question',
+        theme: 'material',
+        closeIcon: true,
+        type: 'orange',
+        autoClose: 'No|5000',
+        buttons: {
+            Yes: {
+                btnClass: 'btn-red any-other-class',
+                action: function(){
+                    $.ajax({
+                        type:"DELETE",
+                        url: url,
+                        dataType: "json",
+                        success:function(response){
+                            if (response.alert == "success") {
+                                success_toastr(response.message);
+                                load_list(1);
+                            }else{
+                                error_toastr(response.message);
+                                load_list(1);
+                            }
+                        },
+                    });
+                }
+            },
+            No: {
+                btnClass: 'btn-blue', // multiple classes.
+                // ...
+            }
+        }
+    });
+}

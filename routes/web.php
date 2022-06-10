@@ -39,3 +39,7 @@ Route::resource('outbound',OutBoundController::class);
 Route::resource('schedule',ScheduleController::class);
 Route::resource('cargo',CargoController::class);
 Route::resource('manifest',ManifestController::class);
+Route::get('request_download_pdf',[ManifestController::class, 'pdfDownload'])->name('manifest.request_download_pdf');
+Route::get('cetak_pdf',[InBoundController::class, 'pdfDownload'])->name('inbound.cetak_pdf');
+Route::get('cetakPdf',[OutBoundController::class, 'pdfDownload'])->name('outbound.cetakPdf');
+                

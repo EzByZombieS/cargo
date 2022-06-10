@@ -1,35 +1,42 @@
-<x-web-layout title="Inbound">
-    
-    <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_ecommerce_products_table">
+<div class="table-responsive">
+    <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
         <thead>
-            <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
-                <th class="w-10px pe-2">Id Vissel</th>
-                <th class="min-w-200px">Vessel Name</th>
-                <th class="min-w-200px">ETA</th>
-                <th class="min-w-200px">ETD</th>
-                <th class="min-w-200px">Container Number</th>
-                <th class="min-w-200px">PO</th>
-                <th class="min-w-200px">Description</th>
-                <th class="text-end min-w-70px">Action</th>
+            <tr class="fw-bolder text-muted">
+                <th class="max-w-150px">No</th>
+                <th class="max-w-150px">Id Vessel</th>
+                <th class="max-w-140px">Vessel Name</th>
+                <th class="max-w-130px">ETA</th>
+                <th class="max-w-120px">ETD</th>
+                <th class="max-w-100px">Container Number</th>
+                <th class="max-w-100px">PO</th>
+                <th class="max-w-100px">Description</th>
+                <th class="max-w-100px">Aksi</th>
             </tr>
         </thead>
-        <tbody class="fw-bold text-gray-600">
-            @foreach($collection as $item)
+        <tbody>
+            @foreach ($collection as $i => $item)
             <tr>
                 <td>
-                    {{ $item->id }}
+                    {{$i+1}}
+                </td>
+                <td>
+                    <span class="fw-bolder text-dark">{{ $item->id_vessel }}</span>
                 </td>
                 <td class="text pe-0">
-                    <span class="fw-bolder text-dark">{{ $item->name }}</span>
+                    <span class="fw-bolder text-dark">{{ $item->vessel_name }}</span>
                 </td>
                 <td class="text pe-0">
                     <span class="fw-bolder text-dark">{{ $item->eta }}</span>
                 </td>
                 <td class="text pe-0">
+                    @if($item->etd == NULL)
+                    <span class="fw-bolder text-grey">Null</span>
+                    @else
                     <span class="fw-bolder text-dark">{{ $item->etd }}</span>
+                    @endif
                 </td>
                 <td class="text pe-0">
-                    <span class="fw-bolder text-dark">{{ $item->containernumber }}</span>
+                    <span class="fw-bolder text-dark">{{ $item->container_number }}</span>
                 </td>
                 <td class="text pe-0">
                     <span class="fw-bolder text-dark">{{ $item->po }}</span>
@@ -61,6 +68,5 @@
             @endforeach
         </tbody>
     </table>
-    {{ $collection->links('theme.admin.pagination') }}
-    
-</x-web-layout>
+</div>
+{{ $collection->links('theme.web.pagination') }}

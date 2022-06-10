@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class InBound extends Model
 {
     use HasFactory;
+    protected $table='inbounds';
+    public $timestamps=false;
 }

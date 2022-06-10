@@ -1,29 +1,36 @@
-<x-web-layout title="Inbound">
-    
-    <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_ecommerce_products_table">
+<div class="table-responsive">
+    <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
         <thead>
-            <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
-                <th class="w-10px pe-2">Id Vissel</th>
-                <th class="min-w-200px">Vessel Name</th>
-                <th class="min-w-200px">ETA</th>
-                <th class="min-w-200px">ETD</th>
-                <th class="text-end min-w-70px">Action</th>
+            <tr class="fw-bolder text-muted">
+                <th class="max-w-150px">No</th>
+                <th class="max-w-150px">Id Vessel</th>
+                <th class="max-w-140px">Vessel Name</th>
+                <th class="max-w-130px">ETA</th>
+                <th class="max-w-120px">ETD</th>
+                <th class="max-w-100px">Aksi</th>
             </tr>
         </thead>
-        <tbody class="fw-bold text-gray-600">
-            @foreach($collection as $item)
+        <tbody>
+            @foreach ($collection as $i => $item)
             <tr>
                 <td>
-                    {{ $item->id }}
+                    {{$i+1}}
+                </td>
+                <td>
+                    <span class="fw-bolder text-dark">{{ $item->id_vessel }}</span>
                 </td>
                 <td class="text pe-0">
-                    <span class="fw-bolder text-dark">{{ $item->name }}</span>
+                    <span class="fw-bolder text-dark">{{ $item->vessel_name }}</span>
                 </td>
                 <td class="text pe-0">
                     <span class="fw-bolder text-dark">{{ $item->eta }}</span>
                 </td>
                 <td class="text pe-0">
+                    @if($item->etd == NULL)
+                    <span class="fw-bolder text-grey">Null</span>
+                    @else
                     <span class="fw-bolder text-dark">{{ $item->etd }}</span>
+                    @endif
                 </td>
                 <td class="text-end">
                     <div class="btn-group" role="group">
@@ -37,10 +44,10 @@
                         </button>
                         <div class="dropdown-menu menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold fs-7 w-125px py-4" aria-labelledby="aksi">
                             <div class="menu-item px-3">
-                                <a href="javascript:;" onclick="load_input('{{route('shcedule.edit',$item->id)}}');" class="menu-link px-3">Ubah</a>
+                                <a href="javascript:;" onclick="load_input('{{route('schedule.edit',$item->id)}}');" class="menu-link px-3">Ubah</a>
                             </div>
                             <div class="menu-item px-3">
-                                <a href="javascript:;" onclick="handle_delete('{{route('shcedule.destroy',$item->id)}}');" class="menu-link px-3">Hapus</a>
+                                <a href="javascript:;" onclick="handle_delete('{{route('schedule.destroy',$item->id)}}');" class="menu-link px-3">Hapus</a>
                             </div>
                         </div>
                     </div>
@@ -49,6 +56,5 @@
             @endforeach
         </tbody>
     </table>
-    {{ $collection->links('theme.admin.pagination') }}
-    
-</x-web-layout>
+</div>
+{{ $collection->links('theme.web.pagination') }}

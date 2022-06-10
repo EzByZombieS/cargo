@@ -25,10 +25,11 @@ class CreateUsersTable extends Migration
         Schema::create('inbounds', function (Blueprint $table) {
             $table->id();
             $table->string('vessel_name');
+            $table->bigInteger('id_vessel');
             $table->timestamp('eta');
             $table->timestamp('etd')->nullable();
-            $table->integer('container_number');
-            $table->integer('po');
+            $table->bigInteger('container_number');
+            $table->bigInteger('po');
             $table->string('description');
             $table->string('remaks')->nullable();
         });
@@ -36,16 +37,18 @@ class CreateUsersTable extends Migration
         Schema::create('outbounds', function (Blueprint $table) {
             $table->id();
             $table->string('vessel_name');
+            $table->bigInteger('id_vessel');
             $table->timestamp('eta');
             $table->timestamp('etd')->nullable();
-            $table->integer('container_number');
-            $table->integer('po');
+            $table->bigInteger('container_number');
+            $table->bigInteger('po');
             $table->string('description');
         });
 
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
             $table->string('vessel_name');
+            $table->bigInteger('id_vessel');
             $table->timestamp('eta');
             $table->timestamp('etd')->nullable();
         });
