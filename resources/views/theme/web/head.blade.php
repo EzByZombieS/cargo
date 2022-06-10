@@ -14,4 +14,15 @@
 	
 
 	<title>{{config('app.name') . ': ' .$title ?? config('app.name')}}</title>
+	<style>
+		.hijau{
+			background-color: #50CD89 !important;
+		}
+		.aside-menu .menu .menu-item .menu-link .menu-title{
+			color: #ffffff !important;
+		}
+		.aside-menu .menu .menu-item .menu-link .menu-title:hover{
+			color: #ffffff !important;
+		}
+	</style>
 </head>

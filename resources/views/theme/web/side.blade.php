@@ -1,14 +1,14 @@
-<div id="kt_aside" class="aside aside-dark aside-hoverable" data-kt-drawer="true"
+<div id="kt_aside" class="aside hijau aside-dark aside-hoverable" data-kt-drawer="true"
 	data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}"
 	data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}"
 	data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_mobile_toggle">
-	<div class="aside-logo flex-column-auto" id="kt_aside_logo">
+	<div class="aside-logo hijau flex-column-auto" id="kt_aside_logo">
 		<a href="#">
 			<img alt="Logo" src="{{ asset('img/logo.png') }}" class="h-50px logo" />
 		</a>
 	</div>
 	<div class="aside-menu flex-column-fluid">
-		<div class="hover-scroll-overlay-y my-5 my-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true"
+		<div class="my-5 my-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true"
 			data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto"
 			data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer"
 			data-kt-scroll-wrappers="#kt_aside_menu" data-kt-scroll-offset="0">
@@ -31,7 +31,7 @@
 								</svg>
 							</span>
 						</span>
-						<span class="menu-title">Dashboards</span>
+						<span class="menu-title ">Dashboards</span>
 						<span class="menu-arrow"></span>
 					</span>
 					<div class="menu-sub menu-sub-accordion menu-active-bg">
