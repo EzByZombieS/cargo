@@ -18,7 +18,7 @@
 		</div>
 		<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
 			<a href="#" class="d-lg-none">
-				<img alt="Logo" src="{{ asset('img/logo.png') }}" class="h-90px" />
+				<img alt="Logo" src="{{ asset('img/logo.png') }}" class="h-50px" />
 			</a>
 		</div>
 		<div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">

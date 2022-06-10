@@ -20,7 +20,7 @@ class OutBoundController extends Controller
     
     public function create()
     {
-        return view('pages.admin.inbound.input',['outbound'=>new OutBound]);
+        return view('pages.admin.outbound.input',['outbound'=>new OutBound]);
     }
 
     

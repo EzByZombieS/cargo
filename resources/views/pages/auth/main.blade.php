@@ -1,7 +1,7 @@
 <x-auth-layout title="Masuk">
     <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20">
         <a href="#" class="mb-12">
-            <img alt="Logo" src="assets/media/logos/logo-1.svg" class="h-40px" />
+            <img alt="Logo" src="{{ asset('img/logo.png') }}" class="h-200px" />
         </a>
         <div id="page_login">
             <div class="w-lg-500px bg-body rounded shadow-sm p-10 p-lg-15 mx-auto">

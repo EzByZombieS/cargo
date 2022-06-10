@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
-                    <a href="javascript:;" onclick="load_input('{{ route('inbound.create') }}');" class="btn btn-primary">Add Inbound</a>
+                    <a href="javascript:;" onclick="load_input('{{ route('outbound.create') }}');" class="btn btn-primary">Add Outbound</a>
                 </div>
             </div>
             <div class="card-body pt-0">

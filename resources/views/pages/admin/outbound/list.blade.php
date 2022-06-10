@@ -32,7 +32,7 @@
                     <span class="fw-bolder text-dark">{{ $item->containernumber }}</span>
                 </td>
                 <td class="text pe-0">
-                    <span class="fw-bolder text-dark">{{ $item->PO }}</span>
+                    <span class="fw-bolder text-dark">{{ $item->po }}</span>
                 </td>
                 <td class="text pe-0">
                     <span class="fw-bolder text-dark">{{ $item->description }}</span>

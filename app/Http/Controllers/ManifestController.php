@@ -10,10 +10,10 @@ class ManifestController extends Controller
     
     public function index(Request $request)
     {
-        // if ($request->ajax()) {
-        //     $collection = InBound::paginate(10);
-        //     return view('pages.admin.inbound.list',compact('collection'));
-        // }
+        if ($request->ajax()) {
+            $collection = InBound::paginate(10);
+            return view('pages.admin.inbound.list',compact('collection'));
+        }
         return view('pages.user.manifest.main');
     }
 

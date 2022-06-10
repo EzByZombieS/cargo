@@ -14,17 +14,18 @@
                             </div>
                         </div>
                         <div class="card-body pt-0">
-                            <input type="time" class="form-control mb-2" name="eta">
+                            <input class="form-control form-control-solid" placeholder="Pick date & time" name="eta" id="kt_datepicker_1"/>
                             <div class="text-muted fs-7">Set the ETA.</div>
                         </div>
                         <div class="card-header">
                             <div class="card-title">
+                                
                                 <h2>ETD</h2>
                             </div>
                         </div>
                         <div class="card-body pt-0">
-                            <input type="time" class="form-control mb-2" name="etd">
-                            <div class="text-muted fs-7">Set the product ETD.</div>
+                                <input class="form-control form-control-solid" placeholder="Pick date & time" name="etd" id="kt_datepicker_2"/>
+                            <div class="text-muted fs-7">Set ETD.</div>
                         </div>
                     </div>
                     <div class="card card-flush py-4">
@@ -67,7 +68,11 @@
                                         </div>
                                         <div class="mb-10 fv-row">
                                             <label class="required form-label">Remaks</label>
-                                            <input type="text" name="remaks" class="form-control mb-2" placeholder="" value="" />
+                                            <select class="form-select mb-2" id="status" name="remaks">
+                                                <option value="">-- Remaks --</option>
+                                                <option value="Published" {{$inbound->remaks=="receive" ? 'selected' : ''}}>Receive</option>
+                                                <option value="Inactive"  {{$inbound->remaks=="unreceive" ? 'selected' : ''}}>Unreceive</option>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
@@ -97,3 +102,14 @@
         </div>
     </div>
 </div>
+
+<script>
+    $("#kt_datepicker_1").flatpickr({
+        enableTime: true,
+        dateFormat: "Y-m-d H:i",
+    });
+    $("#kt_datepicker_2").flatpickr({
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+});
+</script>

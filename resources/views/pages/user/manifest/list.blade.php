@@ -3,10 +3,14 @@
     <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_ecommerce_products_table">
         <thead>
             <tr class="text-start text-gray-400 fw-bolder fs-7 text-uppercase gs-0">
-                <th class="w-10px pe-2">Id Vissel</th>
-                <th class="min-w-200px">Vessel Name</th>
-                <th class="min-w-200px">ETA</th>
-                <th class="min-w-200px">ETD</th>
+                <th class="ps-4 min-w-160px rounded-start">ID Vissel</th>
+                <th class="min-w-125px">Vessel Name</th>
+                <th class="min-w-125px">ETA</th>
+                <th class="min-w-125px">ETD</th>
+                <th class="min-w-150px">Continer Number</th>
+                <th class="min-w-120px">PO</th>
+                <th class="min-w-150px">Description</th>
+                <th class="min-w-120px">Remaks</th>
                 <th class="text-end min-w-70px">Action</th>
             </tr>
         </thead>
@@ -25,7 +29,22 @@
                 <td class="text pe-0">
                     <span class="fw-bolder text-dark">{{ $item->etd }}</span>
                 </td>
+                <td class="text pe-0">
+                    <span class="fw-bolder text-dark">{{ $item->containernumber }}</span>
+                </td>
+                <td class="text pe-0">
+                    <span class="fw-bolder text-dark">{{ $item->po }}</span>
+                </td>
+                <td class="text pe-0">
+                    <span class="fw-bolder text-dark">{{ $item->description }}</span>
+                </td>
+                <td class="text pe-0">
+                    <span class="fw-bolder text-dark">{{ $item->remaks }}</span>
+                </td>
                 <td class="text-end">
+                    <a href="#" class="btn btn-bg-light btn-color-muted btn-active-color-primary btn-sm px-4 me-2">Cetak</a>
+                </td>
+                {{-- <td class="text-end">
                     <div class="btn-group" role="group">
                         <button id="aksi" type="button" class="btn btn-sm btn-light btn-active-light-primary" data-bs-toggle="dropdown" aria-expanded="false">
                             Aksi
@@ -44,7 +63,7 @@
                             </div>
                         </div>
                     </div>
-                </td>
+                </td> --}}
             </tr>
             @endforeach
         </tbody>
